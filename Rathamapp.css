@@ -1,0 +1,287 @@
+
+.horBAR {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    
+  }
+  
+  .navbar {
+    background-color: yellow;
+    padding: 8px 0;
+    font-family: Calibri, sans-serif;
+    overflow: hidden;
+    
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    
+  }
+  
+  /* Fixed left logo */
+  .Logoname {
+    flex: 0 0 auto;
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    padding: 0 20px;
+    z-index: 1;
+    background: yellow;
+    white-space: nowrap;
+  }
+  
+  
+  .scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    z-index: 0;
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0 559px;
+    margin: 0;
+    gap: 50px;
+  }
+  
+  #nav-links li {
+    flex-shrink: 0;
+  }
+  
+  #nav-links li a {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 10px;
+   
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  
+  #nav-links li a:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  button {
+    background-color: yellow;
+    
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+  }
+  
+  button:hover {
+    
+    color: red;
+  }
+  
+  button a {
+    color:black;
+    text-decoration: none;
+    font-family: Calibri, sans-serif;
+  }
+  
+  button:hover a {
+    color: blue;
+  }
+  
+  .active {
+    background-color: cornflowerblue;
+    font-weight: bold;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      flex-wrap: nowrap;
+      overflow-x: hidden;
+    }
+  
+    .Logoname {
+      padding: 10px 16px;
+      font-size: 22px;
+    }
+  
+    .scroll-container {
+      padding: 0px 0;
+    }
+  
+    #nav-links {
+      padding: 0 16px;
+    }
+    
+  }
+  
+  
+  
+  
+  .verBar {
+      position: fixed;
+      top: 51px;
+      left: 0;
+      width: 145px;
+      height: 100vh; /* full viewport height */
+      background-color: #333;
+      font-family: Calibri, sans-serif;
+      z-index: 1000;
+  }
+  
+  .verBar ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  
+  .verBar a {
+      display: block;
+      padding: 20px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, padding-left 0.3s;
+  }
+  
+  .verBar a:hover {
+      background-color: #575757;
+      padding-left: 35px; 
+  }
+  @media screen and (max-width: 768px) {
+    .verBar {
+      top: 62px; 
+      z-index: 999; 
+      width: 109px;
+  
+    }
+  .verBar a{
+      font-size: 15px;
+      padding-left: 10px;
+  }
+    
+  .verBar a:hover {
+      
+      padding-left: 16px; 
+  }
+  
+  }
+  
+
+  
+h4, h1 {
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+    color: blue;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 90%;
+    word-wrap: break-word;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+h4 {
+    font-size: 18px;
+    color: blue;
+}
+
+h1 {
+    font-size: 22px;
+    color: black;
+}
+
+h1 a {
+    color: white;
+    text-decoration: underline;
+    background-color: cornflowerblue;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+a:hover {
+    color: black;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    h4 {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h1 a {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+.slide {
+    margin: 120px auto 0 auto; /* centers it horizontally */
+    width: 80%; /* make it more responsive */
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.slide img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid black;
+    transition: transform 0.3s ease-in-out;
+    height: 330px;
+}
+
+.slide img:hover {
+    transform: scale(1.1);
+}
+
+
+    body {
+        background-image: url(ayodhya.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding-left: 120px;
+    }
+    
+
+
+
+.product{
+    border: 2px solid yellow;
+    padding: 7px 12px;
+}

@@ -24,7 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <li><a href="product.html">Chariots</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 
-                
+                 <li><a href="#" onclick="logout()" class="button">Logout</a></li> 
                 
 
                 
@@ -61,6 +61,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     <h1>Too see more Click 
          <a href="product.html" class="product">Chariots</a></h1>
     
+    <script>
+        
+        
+    function logout() {
+        if (confirm("Are you sure you want to logout?")) {
+            // If user clicks Yes
+            window.location.href = "Rathamapp.html";  // redirect to your page
+        } else {
+            
+        }
+    }
+    
+
+
+    </script>
     
 
 </body>

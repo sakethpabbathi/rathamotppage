@@ -254,51 +254,52 @@ db.connect(err => {
 
 
 
-// // POST endpoint to save profile data
-// app.post('/api/profile', (req, res) => {
-//   const { name, number, address, profileImage } = req.body;
+// POST endpoint to save profile data
+app.post('/api/profile', (req, res) => {
+  const { name, number, address, profileImage } = req.body;
 
-//   // Ensure that the profile is saved under the correct phone number
-//   const sql = 'INSERT INTO profiles (name, phone_number, address, profile_image) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE name = ?, address = ?, profile_image = ?';
-//   db.query(sql, [name, number, address, profileImage, name, address, profileImage], (err, result) => {
-//       if (err) {
-//           console.error('Error saving profile:', err);
-//           res.status(500).json({ error: 'Failed to save profile data' });
-//           return;
-//       }
-//       res.status(200).json({ message: 'Profile saved successfully' });
-//   });
-// });
+  // Ensure that the profile is saved under the correct phone number
+  const sql = 'INSERT INTO profiles (name, phone_number, address, profile_image) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE name = ?, address = ?, profile_image = ?';
+  db.query(sql, [name, number, address, profileImage, name, address, profileImage], (err, result) => {
+      if (err) {
+          console.error('Error saving profile:', err);
+          res.status(500).json({ error: 'Failed to save profile data' });
+          return;
+      }
+      res.status(200).json({ message: 'Profile saved successfully' });
+  });
+});
 
-// // GET endpoint to retrieve profile data for the logged-in user (using their phone number)
-// app.get('/api/profile', (req, res) => {
-//   const { phoneNumber } = req.query;  // Fetch phone number from query params or session
+// GET endpoint to retrieve profile data for the logged-in user (using their phone number)
+app.get('/api/profile', (req, res) => {
+  const { phoneNumber } = req.query;  // Fetch phone number from query params or session
 
-//   if (!phoneNumber) {
-//       return res.status(400).json({ error: 'Phone number is required' });
-//   }
+  if (!phoneNumber) {
+      return res.status(400).json({ error: 'Phone number is required' });
+  }
 
-//   // Fetch profile data specific to the logged-in phone number
-//   const sql = 'SELECT * FROM profiles WHERE phone_number = ? LIMIT 1';
-//   db.query(sql, [phoneNumber], (err, results) => {
-//       if (err) {
-//           console.error('Error fetching profile:', err);
-//           res.status(500).json({ error: 'Failed to fetch profile data' });
-//           return;
-//       }
-//       if (results.length > 0) {
-//           res.status(200).json(results[0]);
-//       } else {
-//           res.status(404).json({ message: 'No profile data found' });
-//       }
-//   });
-// });
+  // Fetch profile data specific to the logged-in phone number
+  const sql = 'SELECT * FROM profiles WHERE phone_number = ? LIMIT 1';
+  db.query(sql, [phoneNumber], (err, results) => {
+      if (err) {
+          console.error('Error fetching profile:', err);
+          res.status(500).json({ error: 'Failed to fetch profile data' });
+          return;
+      }
+      if (results.length > 0) {
+          res.status(200).json(results[0]);
+      } else {
+          res.status(404).json({ message: 'No profile data found' });
+      }
+  });
+});
 
    
 const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 const otpStore = new Map(); // Temporarily store OTPs (in-memory)
 
 // Serve HTML
+
 
 app.get('/verify', (req, res) => res.sendFile(__dirname + '/verify.html'));
 
@@ -315,7 +316,7 @@ app.post('/send-otp', async (req, res) => {
       from: process.env.TWILIO_PHONE,
       to: `+91${mobile}`
     });
-
+    
     res.redirect('/verify');
   } catch (err) {
     console.error('Twilio Error:', err.message);
@@ -330,7 +331,7 @@ app.post('/verify-otp', (req, res) => {
 
   if (storedOtp === otp) {
     otpStore.delete(mobile);
-   
+  
     res.redirect('/mainapp.html');
   } else {
     res.send('Invalid OTP');

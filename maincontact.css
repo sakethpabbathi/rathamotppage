@@ -1,0 +1,226 @@
+ 
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .horBAR {
+    width: 100%;
+    padding-top: 1px;
+    margin-top: -2px;
+    left: 0;
+    z-index: 1500;
+  }
+  
+  .navbar {
+    background-color: yellow;
+    padding: 8px 0;
+    font-family: Calibri, sans-serif;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden; 
+  }
+  
+  .Logoname {
+    flex: 0 0 auto;
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    padding: 0 20px;
+    z-index: 1;
+    background: yellow;
+    white-space: nowrap;
+    position: fixed; 
+  }
+  
+  .scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    z-index: 0;
+    margin-left: 120px; 
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  #nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 50px;
+    flex-shrink: 0;
+    padding-left: 623px;
+  }
+  
+  #nav-links li {
+    flex-shrink: 0;
+  }
+  
+  #nav-links li a {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  
+  #nav-links li a:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  .btn {
+    background-color: yellow;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+  }
+  
+  .btn a {
+    color: black;
+    text-decoration: none;
+    font-family: Calibri, sans-serif;
+  }
+  
+  .btn:hover {
+    color: red;
+  }
+  
+  .btn:hover a {
+    color: blue;
+  }
+  
+  .active {
+    background-color: cornflowerblue;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+  
+    .Logoname {
+      padding: 10px 16px;
+      font-size: 22px;
+    }
+  
+    .scroll-container {
+      padding: 0 10px;
+    }
+  
+    #nav-links {
+      padding: 0 16px;
+    }
+
+    .card{
+        width: 350px;
+        
+    }
+    .contact-info {
+width: 350px;
+  }
+}
+  
+
+
+
+.card {
+    max-width: 501px;
+    display: block;
+    margin: 120px auto 40px auto;  
+    padding: 30px;
+    opacity: 1;
+}
+
+
+body{
+    background-image: url(rathamu.png);
+    background-repeat: no-repeat;
+    background-size: auto
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 51px auto 40px auto;  
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 35px 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+.contact-info h1 {
+    margin-bottom: 20px;
+    color: red;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+
+.contact-info a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 50px;
+    font-size: 14px;
+    border-top: 2px solid #f39c12;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: #ccc;
+}
+
+.footer-content .developer-name {
+    color: #f39c12;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+

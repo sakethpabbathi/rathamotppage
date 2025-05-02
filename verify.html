@@ -55,11 +55,20 @@
   </style>
 </head>
 <body>
-  <form action="/verify-otp" method="POST">
+  <form id="otpForm"   action="/verify-otp" method="POST">
     <h2>Enter OTP</h2>
     <input type="text" name="mobile" placeholder="Enter mobile number" required>
     <input type="text" name="otp" placeholder="Enter OTP" required>
     <button type="submit">Verify</button>
   </form>
+
+  <script>
+    document.getElementById('otpForm').addEventListener('submit', function (e) {
+      const mobile = document.getElementById('mobile').value;
+      localStorage.setItem('number', mobile);  // ✅ Save to localStorage
+    });
+  </script>
+
+
 </body>
 </html>
