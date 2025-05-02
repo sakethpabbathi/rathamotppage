@@ -1,0 +1,286 @@
+* {
+    text-decoration: none;
+    
+    box-sizing: border-box;
+}
+
+
+
+
+ .horBAR {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    
+  }
+  
+  .navbar {
+    background-color: yellow;
+    padding: 8px 0;
+    font-family: Calibri, sans-serif;
+    overflow: hidden;
+    
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    
+  }
+  
+  /* Fixed left logo */
+  .Logoname {
+    flex: 0 0 auto;
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    padding: 0 20px;
+    z-index: 1;
+    background: yellow;
+    white-space: nowrap;
+  }
+  
+  
+  .scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    z-index: 0;
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0 580px;
+    margin: 8px;
+    gap: 50px;
+  }
+  
+  #nav-links li {
+    flex-shrink: 0;
+  }
+  
+  #nav-links li a {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 10px;
+    /* border: 1px solid gray; */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  
+  #nav-links li a:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  
+  
+  .active {
+    background-color: cornflowerblue;
+    font-weight: bold;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      flex-wrap: nowrap;
+      overflow-x: hidden;
+    }
+  
+    .Logoname {
+      padding: 10px 16px;
+      font-size: 22px;
+    }
+  
+    .scroll-container {
+      padding: 0px 0;
+    }
+  
+    #nav-links {
+      padding: 0 16px;
+    }
+    
+  }
+  
+  
+  
+  
+  .verBar {
+      position: fixed;
+      top: 51px;
+      left: 0;
+      width: 145px;
+      height: 100vh; /* full viewport height */
+      background-color: #333;
+      font-family: Calibri, sans-serif;
+      z-index: 1000;
+  }
+  
+  .verBar ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  
+  .verBar a {
+      display: block;
+      padding: 20px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, padding-left 0.3s;
+  }
+  
+  .verBar a:hover {
+      background-color: #575757;
+      padding-left: 35px; 
+  }
+  @media screen and (max-width: 768px) {
+    .verBar {
+      top: 62px; 
+      z-index: 999; 
+      width: 109px;
+  
+    }
+  .verBar a{
+      font-size: 15px;
+      padding-left: 10px;
+  }
+    
+  .verBar a:hover {
+      
+      padding-left: 16px; 
+  }
+  .product-container{
+    width: 306px;
+  }
+  }
+  
+
+
+
+
+
+
+
+html{
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    overflow-y: scroll;
+}
+.content{
+    height: auto;
+    align-items: center;
+    padding: 20px;
+    margin-top: 80px;
+    background: linear-gradient(to bottom, #fff, #ddd);
+    padding-top: 50px;
+    
+}
+
+
+
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: -44px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 235px;
+    position: relative;
+    left: 97px;
+    top: 0px;
+}
+
+.product img {
+    width: 100%;
+    height: 320px;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 0px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-product {
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    color: gray;
+}
+
+.save-product:hover {
+    color: red;
+}
+
+
+
+.add-to-cart {
+    background-color: green;
+    color: white;
+}
+.add-to-cart:hover{
+    background-color:red;
+}
+
+.product h2 {
+    font-size: 18px;
+    margin: -5px 0;
+}
+
+.product p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+.buy-now {
+    background-color: blue;
+    color: white;
+}
+
+.fa-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: gray;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-heart.active {
+    color: red;
+}

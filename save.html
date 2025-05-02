@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="save.css">
+    <title>Saved-chariots</title>
+</head>
+<body>
+    <nav class=" navbar">
+        <h1>Your saved Collections</h1>
+       <h4> <a href="product.html">Back</a></h4></nav>
+    <div id="saved-container"  class="save-container" ></div>
+
+    <script>
+        function loadSavedProducts() {
+            fetch('http://localhost:3000/api/saved-products')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const savedContainer = document.getElementById('saved-container');
+                        savedContainer.innerHTML = '';
+
+                        data.saved.forEach(item => {
+                            savedContainer.innerHTML += `
+                                <div class="saved-item">
+                                    <h2>${item.product_name}</h2>
+                                    <p>Price: $${item.product_price}</p>
+                                    <button onclick="removeSavedProduct(${item.product_id})">Remove</button>
+                                </div>
+                            `;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function removeSavedProduct(productId) {
+            fetch(`http://localhost:3000/api/remove-saved-product/${productId}`, { method: 'DELETE' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Product removed from saved list.');
+                        loadSavedProducts(); // Reload saved products
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        loadSavedProducts(); // Load saved products on page load
+    </script>
+</body>
+</html>

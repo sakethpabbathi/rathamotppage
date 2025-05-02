@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: otp-login-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: TWILIO_SID
+        value: your_twilio_account_sid
+      - key: TWILIO_AUTH
+        value: your_twilio_auth_token
+      - key: TWILIO_PHONE
+        value: +1415XXXXXXX

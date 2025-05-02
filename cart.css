@@ -1,0 +1,108 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: yellow;
+    padding: 10px 20px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar h1 {
+    margin: 0 auto;
+    color: green;
+    text-align: center;
+    font-size: 28px;
+}
+
+.navbar h4 {
+    margin: 0;
+    position: absolute;
+    left: 30px;
+    top: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:hover {
+    background-color: white;
+    padding: 2px 5px;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 90px auto 20px auto;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item h2 {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.cart-item p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.cart-item button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
+    margin-top: 10px;
+}
+
+.cart-item button:hover {
+    background-color: red;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .navbar h1 {
+        font-size: 22px;
+    }
+
+    .cart-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .cart-item {
+        padding: 10px;
+    }
+
+    .navbar h4 {
+        font-size: 16px;
+        left: 10px;
+        top: 20px;
+    }
+}

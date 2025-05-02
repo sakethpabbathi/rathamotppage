@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratham-Carts</title>
+    <link rel="stylesheet" href="cart.css">
+    
+</head>
+<body>
+    <nav class=" navbar">
+    <h1>Your Cart Collections</h1>
+   <h4> <a href="product.html">Back</a></h4></nav>
+    <div id="cart-container" class="cart-container"  ></div>
+
+    <script>
+        function loadCart() {
+            fetch('http://localhost:3000/api/cart')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const cartContainer = document.getElementById('cart-container');
+                        cartContainer.innerHTML = '';
+
+                        data.cart.forEach(item => {
+                            cartContainer.innerHTML += `
+                                <div class="cart-item">
+                                    <h2>${item.product_name}</h2>
+                                    <p>Price: $${item.product_price}</p>
+                                    <button onclick="removeFromCart(${item.product_id})">Remove</button>
+                                </div>
+                            `;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function removeFromCart(productId) {
+            fetch(`http://localhost:3000/api/remove-from-cart/${productId}`, { method: 'DELETE' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Product removed from cart.');
+                        loadCart(); // Reload the cart
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        loadCart(); // Load cart when page loads
+    </script>
+</body>
+</html>
