@@ -140,10 +140,10 @@ db.connect(err => {
 
 
 
-// Serve order.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'mainapp.html'));
-  });
+// // Serve order.html
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'mainapp.html'));
+//   });
 
 
   
