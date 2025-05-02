@@ -330,7 +330,7 @@ app.post('/verify-otp', (req, res) => {
 
   if (storedOtp === otp) {
     otpStore.delete(mobile);
-    localStorage.setItem('number', number);
+   
     res.redirect('/mainapp.html');
   } else {
     res.send('Invalid OTP');
