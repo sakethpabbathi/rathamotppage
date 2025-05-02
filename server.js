@@ -45,6 +45,8 @@ db.connect(err => {
 
 
 
+
+
 // // Add product to cart
 // app.post('/api/add-to-cart', (req, res) => {
 //     const { productId, productName, productPrice } = req.body;
@@ -141,9 +143,6 @@ db.connect(err => {
 
 
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Rathamapp.html'));
-  });
 
 
   
@@ -252,7 +251,12 @@ app.get('/', (req, res) => {
   
 
 
+  
 
+  app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/Rathamapp.html');
+  });
+  
 
 // POST endpoint to save profile data
 app.post('/api/profile', (req, res) => {
@@ -338,6 +342,9 @@ app.post('/verify-otp', (req, res) => {
   }
 });
 
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.get('/succes', (req, res) => {
   res.sendFile(path.join(__dirname, 'succes.html'));
