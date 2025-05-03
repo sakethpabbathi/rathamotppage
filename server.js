@@ -13,7 +13,7 @@ const multer = require('multer');
 const app = express();
 const upload = multer();
 
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -253,10 +253,16 @@ db.connect(err => {
 
   
 
-  app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/Rathamapp.html');
-  });
-  
+  // This route must come BEFORE express.static
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/Rathamapp.html');
+});
+
+// Static files middleware (moved below)
+app.use(express.static(__dirname));
+
+
+
 
 // POST endpoint to save profile data
 app.post('/api/profile', (req, res) => {
