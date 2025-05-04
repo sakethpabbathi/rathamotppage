@@ -14,10 +14,6 @@ dotenv.config();
 const app = express();
 const otpStore = new Map();
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
 
 const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 
@@ -73,6 +69,32 @@ app.post('/verify-otp', (req, res) => {
   } else {
     res.send('Invalid OTP');
   }
+});
+
+
+
+
+
+
+app.post("/submit-order", (req, res) => {
+  const { name, phone } = req.body;
+  const message = `New Order:\nName: ${name}\nPhone: ${phone}`;
+
+  // Send SMS to owner
+  client.messages.create({
+      body: message,
+      from: process.env.TWILIO_PHONE,  // Your Twilio number
+      to: '+919347719244'             // Owner's number
+  })
+  .then(() => {
+      console.log("SMS sent successfully.");
+      res.redirect('/sent.html');
+      
+  })
+  .catch(err => {
+      console.error("Error sending SMS:", err);
+      res.status(500).send("Failed to send SMS.");
+  });
 });
 
 
