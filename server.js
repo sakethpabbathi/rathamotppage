@@ -20,6 +20,15 @@ const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
+});
+
+
 
   // This route must come BEFORE express.static
 app.get('/', (req, res) => {
