@@ -13,7 +13,7 @@ const app = express();
 const otpStore = new Map();
 
 
-
+const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -42,6 +42,8 @@ app.get('/', (req, res) => {
 
 // Static files middleware (moved below)
 app.use(express.static(__dirname));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -57,7 +59,7 @@ app.post('/send-otp', async (req, res) => {
   try {
     await client.messages.create({
       body: `Your OTP is: ${otp}`,
-      from: process.env.TWILIO_PHONE,
+      from: process.env.TWILIO_PHONE_FROM,
       to: `+91${mobile}`
     });
     res.redirect('/verify');
