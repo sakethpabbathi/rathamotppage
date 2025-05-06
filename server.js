@@ -35,7 +35,6 @@ db.connect(err => {
   console.log(' MySQL Connected to freesql...');
 });
 
-
   // This route must come BEFORE express.static
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/Rathamapp.html');
