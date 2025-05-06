@@ -8,9 +8,6 @@ const { Pool } = require('pg');
 const dotenv = require('dotenv');
 const twilio = require('twilio');
 
-
-
-
 dotenv.config();
 const app = express();
 const otpStore = new Map();
