@@ -16,10 +16,11 @@ const app = express();
 const otpStore = new Map();
 
 
-const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 
+const twilioClient = twilio(accountSid, authToken);
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -29,6 +30,13 @@ const db = mysql.createConnection({
   port: process.env.DB_PORT
 });
 
+db.connect(err => {
+  if (err) {
+      console.error('MySQL Connection Error:', err);
+      return;
+  }
+  console.log(' MySQL Connected to freesql...');
+});
 
 
   // This route must come BEFORE express.static
